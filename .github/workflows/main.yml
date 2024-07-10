@@ -21,7 +21,7 @@ jobs:
       - name: 🏃 Docker Compose Up
         run: |
           echo "Starting Docker containers..."
-          docker-compose -f docker-compose.yml up -d dev
+          docker compose -f docker-compose.yml up -d dev
         env:
           PASS: ${{ secrets.PASS }}
           MAIL: ${{ secrets.MAIL }}
