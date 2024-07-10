@@ -15,6 +15,7 @@ services:
       PASS: ${PASS}
       MAIL: ${MAIL}
       HOST: ${HOST}
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
     networks:
       - nesjs-network
     volumes:

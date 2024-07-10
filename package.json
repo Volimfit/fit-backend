@@ -29,6 +29,7 @@
     "@nestjs/typeorm": "^10.0.1",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.4",
+    "axios": "^1.7.2",
     "cross-env": "^7.0.3",
     "handlebars": "^4.7.8",
     "nodemailer": "^6.9.14",
