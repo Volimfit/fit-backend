@@ -26,4 +26,6 @@ jobs:
           PASS: ${{ secrets.PASS }}
           MAIL: ${{ secrets.MAIL }}
           HOST: ${{ secrets.HOST }}
+          BOT_ID: ${{ secrets.BOT_ID }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
           RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
