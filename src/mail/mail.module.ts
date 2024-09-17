@@ -4,6 +4,7 @@ import { Global, Module } from '@nestjs/common';
 import { join } from 'path';
 import { MailController } from './mail.controller';
 import { MailService } from './mail.service';
+import { TelegramService } from './telegram.service';
 
 @Global()
 @Module({
@@ -31,8 +32,8 @@ import { MailService } from './mail.service';
       }),
     }),
   ],
-  providers: [MailService],
-  exports: [MailService],
+  providers: [MailService,TelegramService],
+  exports: [MailService,TelegramService],
 
   controllers: [MailController],
 })
