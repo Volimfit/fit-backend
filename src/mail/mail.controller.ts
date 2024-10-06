@@ -22,6 +22,23 @@ export class MailController {
    
     return { message: 'Email sent successfully' };
   }
+
+  @Post('send-email-trainer')
+  async sendEmailTrainer(@Body() body: { number: string; recaptcha: string ;name:string}) {
+    const { number, recaptcha,name } = body;
+    try{
+      await this.mailService.sendUserConfirmationTrainer({ number },{name}, recaptcha).then(()=>{
+        this.telegramService.sendMessage(`Заявка на персональную тренировку к ${name}.Номер клиента: ${number}`);
+      });
+      
+    }
+    catch{
+      await this.telegramService.sendMessage(`Отправка писем дала сбой,связаться с @grby_97`);
+    }
+
+   
+    return { message: 'Email sent successfully' };
+  }
   @Get('test')
   async sendTelegram() {
 

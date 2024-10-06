@@ -35,4 +35,21 @@ export class MailService {
       },
     });
   }
+  async sendUserConfirmationTrainer(user: any,name:any, token: string) {
+    const isRecaptchaValid = await this.verifyRecaptcha(token);
+    console.log(isRecaptchaValid);
+    if (!isRecaptchaValid) {
+      throw new BadRequestException('Invalid reCAPTCHA');
+    }
+
+    await this.mailerService.sendMail({
+      to: process.env.MAIL,
+      subject: 'Заявка на персональную тренировку',
+      template: './personal', // `.hbs` extension is appended automatically
+      context: {
+        name: name.name,
+        number: user.number,
+      },
+    });
+  }
 }
